@@ -20,14 +20,14 @@ public class Negotiation {
 
     @Id
     private UUID id;
-    private String centroOrigemId;
+    private String centerOriginId;
     private String centroDestinoId;
-    private LocalDateTime dataHora;
-    private boolean validadoComoInjusto;
+    private LocalDateTime dateTime;
+    private Boolean validatedasunfair;
 
     // Recursos enviados do centro de origem para o destino
-    private Map<ResourceType, Integer> recursosEnviadosOrigem = new EnumMap<>(ResourceType.class);
+    private Map<ResourceType, Integer> resourcesSubmittedOrigin = new EnumMap<>(ResourceType.class);
 
     // Recursos enviados do centro de destino para a origem
-    private Map<ResourceType, Integer> recursosEnviadosDestino = new EnumMap<>(ResourceType.class);
+    private Map<ResourceType, Integer> resourcesSentDestination = new EnumMap<>(ResourceType.class);
 }
