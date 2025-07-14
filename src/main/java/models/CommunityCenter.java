@@ -7,8 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.UUID;
 
-@Document(collection = "centros_comunitarios")
+@Document(collection = "community_center")
 @Getter
 @Setter
 @Builder
@@ -17,7 +18,7 @@ import java.util.Map;
 public class CommunityCenter {
 
     @Id
-    private String id;
+    private UUID id;
 
     private String name;
     private String address;
