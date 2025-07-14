@@ -1,20 +1,19 @@
 package models.enums;
 
-public enum RecursoTipo {
-    MEDICO(4),
-    VOLUNTARIO(3),
-    KIT_MEDICO(7),
-    VEICULO(5),
-    CESTA_BASICA(2);
+import lombok.Getter;
 
-    private final int pontos;
+@Getter
+public enum ResourceType {
+    DOCTOR(4),
+    VOLUNTARY(3),
+    MEDICAL_KIT(7),
+    VEHICLE(5),
+    BASIC_BASKET(2);
 
-    RecursoTipo(int pontos) {
-        this.pontos = pontos;
-    }
+    private final int points;
 
-    public int getPontos() {
-        return pontos;
+    ResourceType(int points) {
+        this.points = points;
     }
 
 }

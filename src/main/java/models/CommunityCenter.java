@@ -1,7 +1,7 @@
 package models;
 
 import lombok.*;
-import models.enums.RecursoTipo;
+import models.enums.ResourceType;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,18 +14,18 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CentroComunitario {
+public class CommunityCenter {
 
     @Id
     private String id;
 
-    private String nome;
-    private String endereco;
-    private double latitude;
-    private double longitude;
+    private String name;
+    private String address;
+    private Double latitude;
+    private Double longitude;
 
-    private int capacidadeMaxima;
-    private int ocupacaoAtual;
+    private Integer maximumCapacity;
+    private Integer CurrentOccupation;
 
-    private Map<RecursoTipo, Integer> recursos = new EnumMap<>(RecursoTipo.class);
+    private Map<ResourceType, Integer> recurce = new EnumMap<>(ResourceType.class);
 }
