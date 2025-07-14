@@ -1,5 +1,7 @@
 package dtos;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.*;
 import models.enums.ResourceType;
 
@@ -8,9 +10,9 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPOJOBuilder(withPrefix = "")
 public class CommunityCenterResponseDTO {
 
     private UUID id;

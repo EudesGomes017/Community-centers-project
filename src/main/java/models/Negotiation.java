@@ -14,8 +14,6 @@ import java.util.UUID;
 @Getter
 @Setter
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Negotiation {
 
     @Id
@@ -30,4 +28,5 @@ public class Negotiation {
 
     // Recursos enviados do centro de destino para a origem
     private Map<ResourceType, Integer> resourcesSentDestination = new EnumMap<>(ResourceType.class);
+
 }

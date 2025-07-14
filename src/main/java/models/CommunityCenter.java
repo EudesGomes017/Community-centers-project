@@ -13,8 +13,6 @@ import java.util.UUID;
 @Getter
 @Setter
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class CommunityCenter {
 
     @Id
@@ -24,9 +22,9 @@ public class CommunityCenter {
     private String address;
     private Double latitude;
     private Double longitude;
-
     private Integer maximumCapacity;
     private Integer CurrentOccupation;
 
     private Map<ResourceType, Integer> recurce = new EnumMap<>(ResourceType.class);
+
 }
