@@ -22,7 +22,7 @@ public class Negotiation {
     private String originCenterId;
     private String destinationCenterId;
     private LocalDateTime dateTime;
-    private Boolean validatedasunfair;
+    private Boolean validatedasunfair; //validadoComoInjusto: boolean (se ocupação > 90%)
 
     // Recursos enviados do centro de origem para o destino
     private Map<ResourceType, Integer> resourcesSubmittedOrigin = new EnumMap<>(ResourceType.class);

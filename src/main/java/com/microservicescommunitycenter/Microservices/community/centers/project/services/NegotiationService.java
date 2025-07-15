@@ -7,12 +7,11 @@ import com.microservicescommunitycenter.Microservices.community.centers.project.
 import com.microservicescommunitycenter.Microservices.community.centers.project.repositories.CommunityCenterRepository;
 import com.microservicescommunitycenter.Microservices.community.centers.project.repositories.RepositoryNegotiation;
 import com.microservicescommunitycenter.Microservices.community.centers.project.services.interfaces.INegotiation;
-import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Map;
-import java.util.Optional;
 
 @Service
 public class NegotiationService implements INegotiation {
@@ -50,8 +49,21 @@ public class NegotiationService implements INegotiation {
         transferResources(origin, dto.getResourcesSentDestination(), true); // origem recebe
         transferResources(destination, dto.getResourcesSubmittedOrigin(), true); // destino recebe
 
+        communityCenterRepository.save(origin);
+        communityCenterRepository.save(destination);
 
-        return null;
+        // Registra negociação
+        Negotiation negotiation = Negotiation.builder()
+                .originCenterId(origin.getId())
+                .destinationCenterId(destination.getId())
+                .resourcesSubmittedOrigin(dto.getResourcesSubmittedOrigin())
+                .resourcesSentDestination(dto.getResourcesSentDestination())
+                .dateTime(LocalDateTime.now())
+                .validatedasunfair(pointsOrigin != destinationPoints)
+                .build();
+
+
+        return repositoryNegotiation.save(negotiation);
     }
 
     private void transferResources(CommunityCenter center, Map<ResourceType, Integer> requiredResources, boolean add) {
