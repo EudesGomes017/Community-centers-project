@@ -1,7 +1,7 @@
-package models;
+package com.microservicescommunitycenter.Microservices.community.centers.project.models;
 
 import lombok.*;
-import models.enums.ResourceType;
+import com.microservicescommunitycenter.Microservices.community.centers.project.models.enums.ResourceType;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,7 +16,7 @@ import java.util.UUID;
 public class CommunityCenter {
 
     @Id
-    private UUID id;
+    private String id;
 
     private String name;
     private String address;

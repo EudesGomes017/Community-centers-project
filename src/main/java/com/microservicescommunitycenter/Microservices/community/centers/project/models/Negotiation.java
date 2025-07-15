@@ -1,7 +1,7 @@
-package models;
+package com.microservicescommunitycenter.Microservices.community.centers.project.models;
 
 import lombok.*;
-import models.enums.ResourceType;
+import com.microservicescommunitycenter.Microservices.community.centers.project.models.enums.ResourceType;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -10,16 +10,16 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.UUID;
 
-@Document(collection = "Negotiation")
+@Document(collection = "negotiations")
 @Getter
 @Setter
 @Builder
 public class Negotiation {
 
     @Id
-    private UUID id;
-    private String centerOriginId;
-    private String centroDestinoId;
+    private String id;
+    private String originCenterId;
+    private String destinationCenterId;
     private LocalDateTime dateTime;
     private Boolean validatedasunfair;
 

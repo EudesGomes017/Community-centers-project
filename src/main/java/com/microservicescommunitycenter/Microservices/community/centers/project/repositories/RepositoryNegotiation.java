@@ -1,14 +1,14 @@
-package repositories;
+package com.microservicescommunitycenter.Microservices.community.centers.project.repositories;
 
-import models.CommunityCenter;
-import models.Negotiation;
+import com.microservicescommunitycenter.Microservices.community.centers.project.models.CommunityCenter;
+import com.microservicescommunitycenter.Microservices.community.centers.project.models.Negotiation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-public interface RepositoryNegotiation extends MongoRepository<CommunityCenter, UUID> {
+public interface RepositoryNegotiation extends MongoRepository<Negotiation, String> {
 
 
     // Buscar todas de um centro específico

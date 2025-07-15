@@ -1,9 +1,9 @@
-package dtos;
+package com.microservicescommunitycenter.Microservices.community.centers.project.dtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.*;
-import models.enums.ResourceType;
+import com.microservicescommunitycenter.Microservices.community.centers.project.models.enums.ResourceType;
 
 import java.util.Map;
 import java.util.UUID;
@@ -15,7 +15,7 @@ import java.util.UUID;
 @JsonPOJOBuilder(withPrefix = "")
 public class CommunityCenterResponseDTO {
 
-    private UUID id;
+    private String id;
     private String name;
     private String address;
     private Double latitude;

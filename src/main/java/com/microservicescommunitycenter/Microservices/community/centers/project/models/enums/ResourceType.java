@@ -1,4 +1,4 @@
-package models.enums;
+package com.microservicescommunitycenter.Microservices.community.centers.project.models.enums;
 
 import lombok.Getter;
 

@@ -1,8 +1,8 @@
-package dtos.convert;
+package com.microservicescommunitycenter.Microservices.community.centers.project.dtos.convert;
 
-import dtos.CommunityCenterRequestDTO;
-import dtos.CommunityCenterResponseDTO;
-import models.CommunityCenter;
+import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.CommunityCenterRequestDTO;
+import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.CommunityCenterResponseDTO;
+import com.microservicescommunitycenter.Microservices.community.centers.project.models.CommunityCenter;
 
 
 public class CommunityCenterMapper {

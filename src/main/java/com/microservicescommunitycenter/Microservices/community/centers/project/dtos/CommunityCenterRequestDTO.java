@@ -1,10 +1,10 @@
-package dtos;
+package com.microservicescommunitycenter.Microservices.community.centers.project.dtos;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import jakarta.validation.constraints.*;
 import lombok.*;
-import models.enums.ResourceType;
+import com.microservicescommunitycenter.Microservices.community.centers.project.models.enums.ResourceType;
 
 import java.util.Map;
 
