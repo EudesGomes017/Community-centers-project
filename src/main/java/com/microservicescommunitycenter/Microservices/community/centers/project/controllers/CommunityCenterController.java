@@ -21,8 +21,6 @@ public class CommunityCenterController {
     @Autowired
     private CommunityCenterService service;
 
-
-
     @PostMapping
     @Operation(summary = "Salvar nova ", description = "Endpoint para criar uma nova vítima com ou sem imagem")
     public ResponseEntity<CommunityCenterResponseDTO> cadastrar(@RequestBody @Valid CommunityCenterRequestDTO dto) {
