@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.EnumMap;
 import java.util.Map;
-import java.util.UUID;
+
 
 @Document(collection = "community_center")
 @Getter

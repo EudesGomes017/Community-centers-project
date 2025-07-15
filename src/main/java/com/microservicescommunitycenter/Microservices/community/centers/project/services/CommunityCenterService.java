@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.microservicescommunitycenter.Microservices.community.centers.project.repositories.CommunityCenterRepository;
 import com.microservicescommunitycenter.Microservices.community.centers.project.services.interfaces.ICentroComunitario;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,6 +20,7 @@ public class CommunityCenterService implements ICentroComunitario {
     private CommunityCenterRepository repository;
 
 
+    @Transactional
     @Override
     public CommunityCenterResponseDTO registerCenter(CommunityCenterRequestDTO dto) {
         CommunityCenter center = CommunityCenterMapper.toEntity( dto);
@@ -26,6 +28,7 @@ public class CommunityCenterService implements ICentroComunitario {
         return CommunityCenterMapper.toDTO(salve);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<CommunityCenterResponseDTO> listAll() {
         return repository.findAll()

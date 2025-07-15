@@ -2,6 +2,7 @@ package com.microservicescommunitycenter.Microservices.community.centers.project
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import com.microservicescommunitycenter.Microservices.community.centers.project.models.CommunityCenter;
 import com.microservicescommunitycenter.Microservices.community.centers.project.models.enums.ResourceType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -29,4 +30,5 @@ public class ResourceExchangeRequestDTO {
 
     @NotNull
     private Map<ResourceType, Integer> resourcesSentDestination;
+
 }
