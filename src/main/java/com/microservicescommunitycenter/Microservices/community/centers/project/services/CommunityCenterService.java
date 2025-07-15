@@ -23,8 +23,8 @@ public class CommunityCenterService implements ICentroComunitario {
     @Transactional
     @Override
     public CommunityCenterResponseDTO registerCenter(CommunityCenterRequestDTO dto) {
-        CommunityCenter center = CommunityCenterMapper.toEntity( dto);
-        CommunityCenter salve =  repository.save(center);
+        CommunityCenter center = CommunityCenterMapper.toEntity(dto);
+        CommunityCenter salve = repository.save(center);
         return CommunityCenterMapper.toDTO(salve);
     }
 
@@ -35,5 +35,39 @@ public class CommunityCenterService implements ICentroComunitario {
                 .stream()
                 .map(CommunityCenterMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public CommunityCenterResponseDTO findById(String id) {
+        CommunityCenter center = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Centro não encontrado"));
+        return CommunityCenterMapper.toDTO(center);
+    }
+
+
+    @Override
+    public CommunityCenterResponseDTO update(String id, CommunityCenterRequestDTO dto) {
+        CommunityCenter center = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Centro não encontrado"));
+
+        center.setName(dto.getName());
+        center.setAddress(dto.getAddress());
+        center.setLatitude(dto.getLatitude());
+        center.setLongitude(dto.getLongitude());
+        center.setMaximumCapacity(dto.getMaximumCapacity());
+        center.setCurrentOccupation(dto.getCurrentOccupation());
+        center.setRecurce(dto.getRecurce());
+
+        CommunityCenter resultUpdate = repository.save(center);
+
+        return CommunityCenterMapper.toDTO(resultUpdate);
+    }
+
+    @Override
+    public void delete(String id) {
+        CommunityCenter center = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Centro não encontrado"));
+
+        repository.delete(center);
     }
 }
