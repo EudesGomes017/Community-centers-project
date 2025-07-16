@@ -23,7 +23,7 @@ public class CommunityCenter {
     private Double latitude;
     private Double longitude;
     private Integer maximumCapacity;
-    private Integer CurrentOccupation;
+    private Integer CurrentOccupation; //Ocupação atual
 
     private Map<ResourceType, Integer> recurce = new EnumMap<>(ResourceType.class);
 

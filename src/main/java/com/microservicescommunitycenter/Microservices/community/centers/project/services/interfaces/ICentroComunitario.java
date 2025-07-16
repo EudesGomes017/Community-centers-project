@@ -12,6 +12,8 @@ public interface ICentroComunitario {
     List<CommunityCenterResponseDTO> listAll();
 
     CommunityCenterResponseDTO findById(String id);
+
     CommunityCenterResponseDTO update(String id, CommunityCenterRequestDTO dto);
+
     void delete(String id);
 }

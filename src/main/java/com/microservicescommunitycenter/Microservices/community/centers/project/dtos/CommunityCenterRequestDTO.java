@@ -33,7 +33,7 @@ public class CommunityCenterRequestDTO {
     private int maximumCapacity;
 
     @Min(0)
-    private int CurrentOccupation;
+    private int CurrentOccupation; //Ocupação atual
 
     @NotNull
     private Map<ResourceType, Integer> recurce;

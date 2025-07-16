@@ -19,7 +19,6 @@ public class CommunityCenterService implements ICentroComunitario {
     @Autowired
     private CommunityCenterRepository repository;
 
-
     @Transactional
     @Override
     public CommunityCenterResponseDTO registerCenter(CommunityCenterRequestDTO dto) {
@@ -43,7 +42,6 @@ public class CommunityCenterService implements ICentroComunitario {
                 .orElseThrow(() -> new IllegalArgumentException("Centro não encontrado"));
         return CommunityCenterMapper.toDTO(center);
     }
-
 
     @Override
     public CommunityCenterResponseDTO update(String id, CommunityCenterRequestDTO dto) {
