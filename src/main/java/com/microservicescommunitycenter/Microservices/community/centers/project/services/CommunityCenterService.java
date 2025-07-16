@@ -2,8 +2,10 @@ package com.microservicescommunitycenter.Microservices.community.centers.project
 
 import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.CommunityCenterRequestDTO;
 import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.CommunityCenterResponseDTO;
+import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.OccupationCenterUpdateDTO;
 import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.convert.CommunityCenterMapper;
 import com.microservicescommunitycenter.Microservices.community.centers.project.models.CommunityCenter;
+import com.microservicescommunitycenter.Microservices.community.centers.project.services.interfaces.INotificacaoPublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.microservicescommunitycenter.Microservices.community.centers.project.repositories.CommunityCenterRepository;
@@ -18,6 +20,9 @@ public class CommunityCenterService implements ICentroComunitario {
 
     @Autowired
     private CommunityCenterRepository repository;
+
+    @Autowired
+    private INotificacaoPublisher notificacaoPublisher;
 
     @Transactional
     @Override
@@ -59,6 +64,21 @@ public class CommunityCenterService implements ICentroComunitario {
         CommunityCenter resultUpdate = repository.save(center);
 
         return CommunityCenterMapper.toDTO(resultUpdate);
+    }
+
+    @Override
+    public CommunityCenterResponseDTO updateOccupation(String id, OccupationCenterUpdateDTO dto) {
+        CommunityCenter center = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Centro não encontrado"));
+
+        center.setCurrentOccupation(dto.getCurrentOccupation());
+
+        if (center.getCurrentOccupation() >= center.getMaximumCapacity()) {
+            notificacaoPublisher.publish(center); //dispara evento
+        }
+
+        CommunityCenter update = repository.save(center);
+        return CommunityCenterMapper.toDTO(update);
     }
 
     @Override

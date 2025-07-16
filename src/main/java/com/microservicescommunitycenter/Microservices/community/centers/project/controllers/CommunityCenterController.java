@@ -3,6 +3,8 @@ package com.microservicescommunitycenter.Microservices.community.centers.project
 
 import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.CommunityCenterRequestDTO;
 import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.CommunityCenterResponseDTO;
+import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.OccupationCenterUpdateDTO;
+import com.microservicescommunitycenter.Microservices.community.centers.project.services.interfaces.INotificacaoPublisher;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -45,9 +47,18 @@ public class CommunityCenterController {
         return ResponseEntity.ok(service.update(id, dto));
     }
 
+    @PatchMapping("/{id}/occupation")
+    public ResponseEntity<CommunityCenterResponseDTO> upadateOccupation(
+            @PathVariable String id,
+            @RequestBody @Valid OccupationCenterUpdateDTO dto) {
+        return ResponseEntity.ok(service.updateOccupation(id, dto));
+    }
+
     @DeleteMapping(value = "/delet/{id}", produces = "application/json")
     public ResponseEntity<Void> delete(@PathVariable String id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+
 }
