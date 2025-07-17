@@ -4,14 +4,13 @@ package com.microservicescommunitycenter.Microservices.community.centers.project
 import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.CommunityCenterRequestDTO;
 import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.CommunityCenterResponseDTO;
 import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.OccupationCenterUpdateDTO;
-import com.microservicescommunitycenter.Microservices.community.centers.project.services.interfaces.INotificacaoPublisher;
+import com.microservicescommunitycenter.Microservices.community.centers.project.services.CommunityCenterService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.microservicescommunitycenter.Microservices.community.centers.project.services.CommunityCenterService;
 
 import java.util.List;
 

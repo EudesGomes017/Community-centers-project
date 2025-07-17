@@ -13,8 +13,9 @@ import java.util.Map;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPOJOBuilder(withPrefix = "")
+@NoArgsConstructor
+@AllArgsConstructor
 public class CommunityCenterRequestDTO {
-
 
 
     @NotBlank
@@ -37,5 +38,6 @@ public class CommunityCenterRequestDTO {
 
     @NotNull
     private Map<ResourceType, Integer> recurce;
+
 
 }

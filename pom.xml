@@ -71,11 +71,11 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<version>5.10.0</version>
-			<scope>test</scope>
-		</dependency>
+		<groupId>org.junit.jupiter</groupId>
+		<artifactId>junit-jupiter-api</artifactId>
+		<version>5.10.0</version> <!-- Versão mais recente do JUnit 5 -->
+		<scope>test</scope>
+	</dependency>
 
 		<!-- springdoc compatível com Spring Boot 3.2.2 -->
 		<dependency>
