@@ -83,6 +83,8 @@ A API gerencia centros comunitários e seus recursos (médicos, voluntários, ve
 
 ### Subir com Docker Compose
 
+
+
 ```
 docker-compose up --build
 Rodar Localmente
@@ -117,6 +119,8 @@ Testes de integração com MockMvc
 Validações REST e exceções
 
 
+```
+
 Pontos de Dificuldade & Considerações Técnicas
 Durante o desenvolvimento da aplicação, algumas decisões técnicas e limitações foram enfrentadas:
 
@@ -144,4 +148,7 @@ Entrega funcional, compilável, e com arquitetura sólida (respeitando SOLID)
 
 👤 Autor
 Eudes Gomes
-LinkedIn: [[Seu LinkedIn]](https://www.linkedin.com/in/eudes-gomes-1b3b94b5/)
+LinkedIn: https://www.linkedin.com/in/eudes-gomes-1b3b94b5/
+
+
+
