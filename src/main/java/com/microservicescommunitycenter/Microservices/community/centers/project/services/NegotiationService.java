@@ -6,6 +6,7 @@ import com.microservicescommunitycenter.Microservices.community.centers.project.
 import com.microservicescommunitycenter.Microservices.community.centers.project.models.enums.ResourceType;
 import com.microservicescommunitycenter.Microservices.community.centers.project.repositories.CommunityCenterRepository;
 import com.microservicescommunitycenter.Microservices.community.centers.project.repositories.RepositoryNegotiation;
+import com.microservicescommunitycenter.Microservices.community.centers.project.services.exceotionsServices.ResourceNotFoundException;
 import com.microservicescommunitycenter.Microservices.community.centers.project.services.interfaces.INegotiation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,10 +27,10 @@ public class NegotiationService implements INegotiation {
     @Override
     public Negotiation carryNegotiation(ResourceExchangeRequestDTO dto) {
         CommunityCenter origin = communityCenterRepository.findById(dto.getOriginCenterId())
-                .orElseThrow(() -> new IllegalArgumentException("Centro de origem não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Centro de origem não encontrado"));
 
         CommunityCenter destination = communityCenterRepository.findById(dto.getDestinationCenterId())
-                .orElseThrow(() -> new IllegalArgumentException("Centro destino não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Centro destino não encontrado"));
 
         int pointsOrigin = calculatescore(dto.getResourcesSubmittedOrigin());
         int destinationPoints = calculatescore(dto.getResourcesSentDestination());
@@ -39,7 +40,7 @@ public class NegotiationService implements INegotiation {
 
         // Validação da pontuação: se nenhum dos dois está em estado crítico, os pontos precisam bater
         if (!originCritic && !criticalDestination && pointsOrigin != destinationPoints) {
-            throw new IllegalArgumentException("Pontuação incompatível entre os centros.");
+            throw new ResourceNotFoundException("Pontuação incompatível entre os centros.");
         }
 
         // Verifica se centros possuem os recursos informados

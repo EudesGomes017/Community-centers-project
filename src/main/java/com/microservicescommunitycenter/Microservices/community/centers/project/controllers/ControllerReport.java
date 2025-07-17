@@ -70,7 +70,6 @@ public class ControllerReport {
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy.MM.dd") LocalDate since,
             HttpServletResponse response) {
 
-
         try {
             LocalDateTime initial = (since != null) ? since.atStartOfDay(): LocalDateTime.MIN;
             LocalDateTime finish = LocalDateTime.now();

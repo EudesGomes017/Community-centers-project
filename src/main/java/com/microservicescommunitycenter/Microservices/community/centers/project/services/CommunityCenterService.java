@@ -5,6 +5,7 @@ import com.microservicescommunitycenter.Microservices.community.centers.project.
 import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.OccupationCenterUpdateDTO;
 import com.microservicescommunitycenter.Microservices.community.centers.project.dtos.convert.CommunityCenterMapper;
 import com.microservicescommunitycenter.Microservices.community.centers.project.models.CommunityCenter;
+import com.microservicescommunitycenter.Microservices.community.centers.project.services.exceotionsServices.ResourceNotFoundException;
 import com.microservicescommunitycenter.Microservices.community.centers.project.services.interfaces.INotificacaoPublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,14 +45,14 @@ public class CommunityCenterService implements ICentroComunitario {
     @Override
     public CommunityCenterResponseDTO findById(String id) {
         CommunityCenter center = repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Centro não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Centro não encontrado"));
         return CommunityCenterMapper.toDTO(center);
     }
 
     @Override
     public CommunityCenterResponseDTO update(String id, CommunityCenterRequestDTO dto) {
         CommunityCenter center = repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Centro não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Centro não encontrado"));
 
         center.setName(dto.getName());
         center.setAddress(dto.getAddress());
@@ -69,7 +70,7 @@ public class CommunityCenterService implements ICentroComunitario {
     @Override
     public CommunityCenterResponseDTO updateOccupation(String id, OccupationCenterUpdateDTO dto) {
         CommunityCenter center = repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Centro não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Centro não encontrado"));
 
         center.setCurrentOccupation(dto.getCurrentOccupation());
 
@@ -84,7 +85,7 @@ public class CommunityCenterService implements ICentroComunitario {
     @Override
     public void delete(String id) {
         CommunityCenter center = repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Centro não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Centro não encontrado"));
 
         repository.delete(center);
     }
