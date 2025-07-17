@@ -116,6 +116,32 @@ Testes de integração com MockMvc
 
 Validações REST e exceções
 
+
+Pontos de Dificuldade & Considerações Técnicas
+Durante o desenvolvimento da aplicação, algumas decisões técnicas e limitações foram enfrentadas:
+
+⚠️ Notificação de Ocupação Máxima
+A lógica de notificação está implementada via publicação de evento interno (publisher), simulando um mecanismo de notificação assíncrona.
+Entretanto, não foi possível integrar com um microserviço externo real (ex: Kafka, RabbitMQ ou Webhook).
+✅ A notificação é registrada no log e estruturada para fácil substituição por uma integração real.
+
+🔬 Cobertura de Testes
+Foi implementada uma base sólida de testes unitários (services) e testes de integração com MockMvc (controllers)
+
+Porém, não foi possível atingir 100% de cobertura principalmente por limitações de tempo e escopo
+
+Pontos com cobertura parcial:
+ServiceCommunityCenterTest
+CommunityCenterControllerTest
+
+Priorizou-se:
+
+Código limpo e testável
+
+Cobertura de todas as regras de negócio descritas no desafio
+
+Entrega funcional, compilável, e com arquitetura sólida (respeitando SOLID)
+
 👤 Autor
 Eudes Gomes
 LinkedIn: [[Seu LinkedIn]](https://www.linkedin.com/in/eudes-gomes-1b3b94b5/)
