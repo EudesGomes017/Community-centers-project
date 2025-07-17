@@ -116,12 +116,6 @@ Testes de integração com MockMvc
 
 Validações REST e exceções
 
-
 👤 Autor
 Eudes Gomes
 LinkedIn: [[Seu LinkedIn]](https://www.linkedin.com/in/eudes-gomes-1b3b94b5/)
-
-👤 Autor
-Você mesmo, o Dev Java #1 💪
-GitHub: [Seu Perfil]
-LinkedIn: [Seu LinkedIn]
