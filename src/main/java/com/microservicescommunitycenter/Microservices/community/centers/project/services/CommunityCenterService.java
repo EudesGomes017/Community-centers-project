@@ -23,7 +23,7 @@ public class CommunityCenterService implements ICentroComunitario {
     private CommunityCenterRepository repository;
 
     @Autowired
-    private INotificacaoPublisher notificacaoPublisher;
+    private INotificacaoPublisher publisherNotification;
 
     @Transactional
     @Override
@@ -75,7 +75,7 @@ public class CommunityCenterService implements ICentroComunitario {
         center.setCurrentOccupation(dto.getCurrentOccupation());
 
         if (center.getCurrentOccupation() >= center.getMaximumCapacity()) {
-            notificacaoPublisher.publish(center); //dispara evento
+            publisherNotification.publish(center); //dispara evento
         }
 
         CommunityCenter update = repository.save(center);

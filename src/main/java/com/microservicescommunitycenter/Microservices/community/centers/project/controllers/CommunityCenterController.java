@@ -16,14 +16,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/centers")
-@Tag(name = "Community Centers", description = "Operations related to Community Centers")
 public class CommunityCenterController {
 
     @Autowired
     private CommunityCenterService service;
 
-    @PostMapping
-    @Operation(summary = "Salvar nova ", description = "Endpoint to create a new Community Center")
     public ResponseEntity<CommunityCenterResponseDTO> register(@RequestBody @Valid CommunityCenterRequestDTO dto) {
         CommunityCenterResponseDTO response = service.registerCenter(dto);
         return ResponseEntity.ok(response);

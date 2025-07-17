@@ -19,8 +19,8 @@ public class NegotiationController {
     private NegotiationService service;
 
     @PostMapping
-    public ResponseEntity<Negotiation> trocarRecursos(@RequestBody @Valid ResourceExchangeRequestDTO dto) {
-        Negotiation negociacao = service.carryNegotiation(dto);
-        return ResponseEntity.ok(negociacao);
+    public ResponseEntity<Negotiation> exchangeResources(@RequestBody @Valid ResourceExchangeRequestDTO dto) {
+        Negotiation negotiation = service.carryNegotiation(dto);
+        return ResponseEntity.ok(negotiation);
     }
 }

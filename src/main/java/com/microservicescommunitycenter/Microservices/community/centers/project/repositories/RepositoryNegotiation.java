@@ -10,11 +10,8 @@ import java.util.UUID;
 
 public interface RepositoryNegotiation extends MongoRepository<Negotiation, String> {
 
-
-    // Buscar todas de um centro específico
     List<Negotiation> findByOriginCenterIdOrDestinationCenterId(String originId, String destinationId);
 
-    // Buscar por centro + intervalo de tempo
     List<Negotiation> findByDateTimeBetweenAndOriginCenterIdOrDestinationCenterId(
             LocalDateTime initial,
             LocalDateTime finsh,

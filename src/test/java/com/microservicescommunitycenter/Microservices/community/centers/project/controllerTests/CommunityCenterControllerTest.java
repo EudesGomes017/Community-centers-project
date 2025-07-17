@@ -33,7 +33,7 @@ public class CommunityCenterControllerTest {
     private ObjectMapper objectMapper;
 
     @Test
-    void deveCriarCentroViaPOST() throws Exception {
+    void sholdCenterPOST() throws Exception {
         CommunityCenterRequestDTO request = Factory.createCenterRequest();
         CommunityCenterResponseDTO response = CommunityCenterResponseDTO.builder()
                 .id("123")
@@ -57,7 +57,7 @@ public class CommunityCenterControllerTest {
     }
 
     @Test
-    void deveValidarRequisicaoInvalida() throws Exception {
+    void sholdValidateInvalidRequest() throws Exception {
         CommunityCenterRequestDTO request = new CommunityCenterRequestDTO();
 
         mockMvc.perform(post("/api/centers")
