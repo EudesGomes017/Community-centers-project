@@ -1,4 +1,4 @@
-# Community Centers API
+# Community Centers API Monolítico 
 
 Este projeto é parte de um sistema de microserviços responsável por gerenciar **centros comunitários** durante emergências, como desastres naturais. A API permite o cadastro, gestão de ocupação, troca de recursos entre centros e emissão de relatórios estratégicos.
 
